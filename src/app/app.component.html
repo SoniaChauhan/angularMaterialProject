@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row content">
+      <div class="col-sm-2 sidenav">
+          <h4 class="header-color">Creative Tim</h4>
+          <mat-divider></mat-divider>
+          <mat-list role="list">
+            <mat-list-item role="listitem" class="wht"><mat-icon>folder</mat-icon> &nbsp; Component</mat-list-item>
+            <mat-list-item role="listitem" class="wht"><mat-icon>assessment</mat-icon> &nbsp; Forms</mat-list-item>
+            <mat-list-item role="listitem" class="wht"><mat-icon> table_chart</mat-icon> &nbsp; Table 3</mat-list-item>
+            <mat-list-item role="listitem" class="wht">	<mat-icon> location_on</mat-icon> &nbsp; Maps</mat-list-item>
+            <mat-list-item role="listitem" class="wht">	<mat-icon>widgets</mat-icon> &nbsp; Widgets</mat-list-item>
+            <mat-list-item role="listitem" class="wht"><mat-icon>domain</mat-icon> &nbsp; Charts</mat-list-item>
+            <mat-list-item role="listitem" class="wht"><mat-icon>calendar_today</mat-icon> &nbsp; Calender</mat-list-item>
+            <mat-list-item role="listitem" class="wht"><mat-icon>assignment</mat-icon> &nbsp;  Pages</mat-list-item>
+            <mat-list-item role="listitem" class="wht"><mat-icon>school</mat-icon> &nbsp; Documentation </mat-list-item>
+          </mat-list>
+      </div>
+
+      <div class="col-sm-10 right-color">
+         <!-- table section start -->
+          <mat-card> 
+            <h4>  
+              <small>Global sales by top location</small></h4>
+              <div style="display: inline-block; width: 48%;">
+                <table class="table">
+                  <thead>
+                      <tr>
+                          <th>S. No.</th>
+                          <th>Firstname</th>
+                          <th>Lastname</th>
+                          <th>Email</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of arr; let  i= index">
+                          <td>{{i+ 1}}</td>
+                          <td> <a [routerLink] = "['/first-component']" (click)="showDetails(item.id)">{{item.first_name}}</a></td>
+                          <td>{{item.last_name}}</td>
+                          <td>{{item.email}}</td>
+                      </tr>
+                  </tbody>
+              </table>
+              </div>
+            
+              <div style="display: inline-block;position: absolute;text-align: center;" class="map-img"></div>
+          </mat-card>
+        <!-- table section end -->
+
+        <!-- chart section start -->
+        <div  fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2%" fxLayoutAlign="center" style="margin-top: 3%;">
+          <mat-card>
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" class="wdt-card"></canvas>
+          </mat-card>
+          <mat-card>
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" class="wdt-card"></canvas>
+          </mat-card>
+          <mat-card>
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" class="wdt-card"></canvas>
+          </mat-card>
+        </div>
+        <!-- chart section end -->
+
+        
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <router-outlet></router-outlet>
+  </div>
+</div>
